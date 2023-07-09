@@ -2,7 +2,8 @@
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
 
-build-2secure: appdome/build-2secure@volatile
+orbs:
+  build-2secure: appdome/build-2secure@volatile
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
@@ -23,6 +24,12 @@ jobs:
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  Appdome fusion:
     jobs:
-      - say-hello
+      - build-2secure/appdome_runner:
+              runner: ANDROID_AUTO_SIGNING
+              team-id: <your_team_ID> - remove this line when working on personal workspace.
+              appFile: <remote_app_location_of_the_non-protected_app>
+              output: <secured_app_file_name>
+              sign-overrides: <path_to_remote_JSON_download_file_location>
+              google-play-signing: <true_or_false> - (For Android only!).
