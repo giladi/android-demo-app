@@ -28,8 +28,7 @@ workflows:
     jobs:
       - build-2secure/appdome_runner:
               runner: ANDROID_AUTO_SIGNING
-              team-id: <your_team_ID> - remove this line when working on personal workspace.
-              appFile: <remote_app_location_of_the_non-protected_app>
-              output: <secured_app_file_name>
-              sign-overrides: <path_to_remote_JSON_download_file_location>
-              google-play-signing: <true_or_false> - (For Android only!).
+              team-id: e0df4e10-06cc-11ee-8d52-f5dec139ad1d
+              appFile: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk
+              output: timecard1appdome.apk
+              google-play-signing: false
